@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Point of Sale</title>
+    <link rel="icon" type="image/x-icone" href="../assets/icons/icons8-monitor-64.ico">
+    <link rel="stylesheet" href="assets/styles/Styles.css">
+    <link rel="stylesheet" href="assets/fontsAwesome/css/all.css">
+    <link rel="stylesheet" href="assets/styles/normalize.css">
+</head>
+<body>
+<header>
+    <div><h1 id="header-h1"><i class="fa-solid fa-sleigh"></i> My POS System</h1></div>
+</header>
+<main>
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="loadHtmlFile('dashboard', 'dash')" id="dash"><span><i
+                        class="fa-solid fa-house"></i>DashBoard</span></a></li>
+                <li><a href="#" onclick="loadHtmlFile('customer', 'cus')" id="cus"><span><i
+                        class="fa-solid fa-user"></i> Customer</span></a></li>
+                <li><a href="#" onclick="loadHtmlFile('item', 'itm')" id="itm"><span><i
+                        class="fa-solid fa-layer-group"></i>Item</span></a></li>
+                <li><a href="#" onclick="loadHtmlFile('order', 'ors')" id="ors"><span><i
+                        class="fa-solid fa-bag-shopping"></i>Order</span></a></li>
+                <li><a href="#" onclick="loadHtmlFile('recentOrderDetails', 'orsde')" id="orsde"><span><i
+                        class="fa-solid fa-bars-staggered"></i>Order Details</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="template" class="template"><div></div>
+    </div>
+</main>
+<script src="assets/lib/jquery-3.6.4.min.js"></script>
+<script>
+
+    var oldBtn ;
+
+    loadHtmlFile('dashboard', 'dash');
+
+    function loadHtmlFile(file, id) {
+        setStyle(id);
+        $('#template').load(file + '.html');
+        oldBtn = id;
+    }
+
+    function setStyle(id) {
+
+        if (oldBtn != undefined){
+            $('#' + oldBtn).css({
+                background: "#dfe4ea",
+                color: "#485460",
+                boxShadow : "none"
+            });
+        }
+
+        $('#' + id).css({
+            background: "#0652DD",
+            color: "white",
+            boxShadow : "2px 2px 8px gray"
+        });
+    }
+</script>
+</body>
+</html>
